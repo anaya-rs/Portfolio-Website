@@ -31,7 +31,6 @@ body {
   font-family: var(--font-body);
   background: var(--cream);
   color: var(--ink);
-  cursor: none;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   /* Default 98% scale for desktop */
@@ -41,21 +40,26 @@ body {
   min-height: 102.04vh; /* Compensate for scale */
 }
 
+/* Hide default cursor everywhere - except on mobile */
+@media (min-width: 769px) {
+  * { cursor: none !important; }
+}
+
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   body {
     cursor: auto; /* Show default cursor on mobile */
-    transform: scale(1); /* Reset scale for mobile */
-    width: 100%; /* Reset width for mobile */
-    min-height: 100vh; /* Reset height for mobile */
+    transform: none !important; /* Completely remove transform on mobile */
+    width: 100% !important; /* Reset width for mobile */
+    min-height: 100vh !important; /* Reset height for mobile */
+    overflow-x: hidden; /* Ensure no horizontal scroll */
   }
   
-  /* Hide custom cursor on mobile */
-  * { cursor: auto !important; }
+  /* Ensure all elements are visible on mobile */
+  * {
+    cursor: auto !important;
+  }
 }
-
-/* Hide default cursor everywhere */
-* { cursor: none !important; }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
