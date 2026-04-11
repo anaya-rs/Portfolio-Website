@@ -1,0 +1,27 @@
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.track {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 1rem;
+}
+
+.item {
+  display: inline-block;
+  margin-right: 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.sep {
+  margin-left: 2rem;
+  opacity: 0.5;
+}
