@@ -457,20 +457,20 @@
   .licenseCard { 
     max-width: 100%; 
     height: auto; 
-    min-height: 240px;
+    min-height: 180px;
     flex-direction: column;
   }
   .licensePhoto { 
     width: 100%; 
     min-width: auto; 
-    padding: 16px;
-    height: 180px;
+    padding: 12px;
+    height: 140px;
   }
   .photo, .photoFallback { 
-    width: 120px; 
-    height: 140px; 
+    width: 100px; 
+    height: 120px; 
   }
-  .licenseBody { padding: 16px; }
+  .licenseBody { padding: 12px; }
   .licenseName { font-size: 1.2rem; }
   .ctas { 
     gap: 8px; 
