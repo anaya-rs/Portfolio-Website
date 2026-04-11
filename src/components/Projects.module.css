@@ -202,3 +202,12 @@
 
   .section { padding: 4rem 1.5rem; }
 }
+
+@media (max-width: 480px) {
+  .section { padding: 3rem 1rem; }
+  .header { margin-bottom: 2rem; }
+  .card { padding: 1.5rem; }
+  .projectTitle { font-size: 1.3rem; }
+  .tagline { font-size: 0.9rem; }
+  .techStack { font-size: 0.75rem; }
+}

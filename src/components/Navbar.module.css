@@ -135,6 +135,19 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transform-origin: top;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobileLink {
@@ -145,13 +158,19 @@
   font-weight: 700;
   color: var(--ink);
   text-align: left;
-  padding: 6px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
   cursor: pointer;
+  min-height: 44px; /* Minimum touch target size */
+  display: flex;
+  align-items: center;
 }
 
-.mobileLink:hover { color: var(--purple); }
+.mobileLink:hover { 
+  color: var(--purple);
+  transform: translateX(4px);
+}
 
 .mobileHire {
   display: inline-block;
@@ -166,4 +185,14 @@
   .links { display: none; }
   .burger { display: flex; }
   .nav { padding: 1rem 1.5rem; }
+  .monogram { width: 32px; height: 32px; font-size: 0.75rem; }
+  .logoDot { font-size: 0.8rem; }
+  .mobileMenu { padding: 1.5rem 1.5rem 2rem; }
+  .mobileLink { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .nav { padding: 1rem 1rem; }
+  .burger { padding: 8px; }
+  .burgerLine, .burgerLineOpen1, .burgerLineOpen2 { width: 20px; }
 }

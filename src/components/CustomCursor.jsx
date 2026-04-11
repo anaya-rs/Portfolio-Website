@@ -4,6 +4,20 @@ export default function CustomCursor() {
   const cursorRef = useRef(null)
   const dotRef = useRef(null)
   const [isHovering, setIsHovering] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Don't render custom cursor on mobile
+  if (isMobile) return null
 
   useEffect(() => {
     let mouseX = 0, mouseY = 0
