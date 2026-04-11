@@ -16,9 +16,6 @@ export default function CustomCursor() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Don't render custom cursor on mobile
-  if (isMobile) return null
-
   useEffect(() => {
     let mouseX = 0, mouseY = 0
     let curX = 0, curY = 0
@@ -58,6 +55,9 @@ export default function CustomCursor() {
       cancelAnimationFrame(animId)
     }
   }, [])
+
+  // Don't render custom cursor on mobile
+  if (isMobile) return null
 
   return (
     <>
