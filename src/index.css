@@ -34,11 +34,11 @@ body {
   cursor: none;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  /* Default 90% scale for desktop */
-  transform: scale(0.9);
+  /* Default 98% scale for desktop */
+  transform: scale(0.98);
   transform-origin: 0 0;
-  width: 111.11%; /* Compensate for scale to prevent horizontal scroll */
-  min-height: 111.11vh; /* Compensate for scale */
+  width: 102.04%; /* Compensate for scale to prevent horizontal scroll */
+  min-height: 102.04vh; /* Compensate for scale */
 }
 
 /* Mobile-specific styles */
