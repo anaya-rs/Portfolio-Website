@@ -73,7 +73,7 @@ export default function Experience() {
         </div>
 
         <div className={styles.list}>
-          {experiences.map((exp, i) => {
+          {experiences?.map((exp, i) => {
             const c = colorMap[exp.color]
             return (
               <div
@@ -98,7 +98,7 @@ export default function Experience() {
 
                   {/* Bullets */}
                   <ul className={styles.bullets}>
-                    {exp.bullets.map((b, j) => (
+                    {exp.bullets?.map((b, j) => (
                       <li key={j} className={styles.bullet}
                         style={{ '--delay': `${j * 0.06}s` }}
                       >{b}</li>
@@ -107,7 +107,7 @@ export default function Experience() {
 
                   {/* Tags */}
                   <div className={styles.tags}>
-                    {exp.tags.map(t => (
+                    {exp.tags?.map(t => (
                       <span key={t} className={styles.tag}
                         style={{ borderColor: c.accent, color: c.text }}
                       >{t}</span>

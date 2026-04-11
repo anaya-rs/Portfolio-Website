@@ -26,7 +26,7 @@ export default function Navbar() {
       </div>
 
       <ul className={styles.links}>
-        {links.map(l => (
+        {links?.map(l => (
           <li key={l}>
             <button onClick={() => scrollTo(l)} className={styles.link}>{l}</button>
           </li>
@@ -52,7 +52,7 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          {links.map(l => (
+          {links?.map(l => (
             <button key={l} onClick={() => scrollTo(l)} className={styles.mobileLink}>
               {l}
             </button>

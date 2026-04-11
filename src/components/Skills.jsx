@@ -90,7 +90,7 @@ export default function Skills() {
         </div>
 
         <div className={styles.grid}>
-          {skillGroups.map((g, i) => (
+          {skillGroups?.map((g, i) => (
             <div
               key={i}
               className={`${styles.card} reveal reveal-delay-${(i % 3) + 1}`}
@@ -107,7 +107,7 @@ export default function Skills() {
               </div>
 
               <div className={styles.chips}>
-                {g.skills.map(s => (
+                {g.skills?.map(s => (
                   <span
                     key={s}
                     className={styles.chip}

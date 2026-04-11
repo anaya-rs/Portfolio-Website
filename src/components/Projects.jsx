@@ -88,7 +88,7 @@ function ProjectCard({ proj, i }) {
       <p className={styles.tagline}>{proj.tagline}</p>
 
       <div className={styles.tags}>
-        {proj.tech.map(t => (
+        {proj.tech?.map(t => (
           <span key={t} className={styles.tag}
             style={{ borderColor: proj.color, color: proj.color, background: proj.bg }}
           >
@@ -100,7 +100,7 @@ function ProjectCard({ proj, i }) {
       {open && (
         <div className={styles.details}>
           <ul className={styles.detailList}>
-            {proj.details.map((d, j) => (
+            {proj.details?.map((d, j) => (
               <li key={j}>{d}</li>
             ))}
           </ul>
@@ -144,7 +144,7 @@ export default function Projects() {
         </div>
 
         <div className={styles.grid}>
-          {projects.map((proj, i) => (
+          {projects?.map((proj, i) => (
             <ProjectCard key={i} proj={proj} i={i} />
           ))}
         </div>

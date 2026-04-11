@@ -44,7 +44,7 @@ export default function Contact() {
 
         <div className={`${styles.right} reveal reveal-delay-2`}>
           <div className={styles.linkList}>
-            {links.map((l, i) => (
+            {links?.map((l, i) => (
               <a
                 key={i}
                 href={l.href}

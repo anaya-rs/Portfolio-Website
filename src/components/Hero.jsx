@@ -125,14 +125,14 @@ export default function Hero() {
               </div>
 
               <div className={styles.licenseTags}>
-                {['Python', 'PyTorch', 'React', 'FastAPI', 'Docker', 'PostgreSQL', 'Git', 'Linux', 'AWS', 'GCP'].map(t => (
+                {['Python', 'PyTorch', 'React', 'FastAPI', 'Docker', 'PostgreSQL', 'Git', 'Linux', 'AWS', 'GCP']?.map(t => (
                   <span key={t} className={styles.licenseTag}>{t}</span>
                 ))}
               </div>
 
               <div className={styles.barcodeRow}>
                 <div className={styles.barcode}>
-                  {BAR_HEIGHTS.map((h, i) => (
+                  {BAR_HEIGHTS?.map((h, i) => (
                     <div key={i} className={styles.bar} style={{ height: `${h}px` }} />
                   ))}
                 </div>
