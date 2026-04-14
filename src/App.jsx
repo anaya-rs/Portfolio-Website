@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
@@ -42,7 +41,6 @@ export default function App() {
 
   return (
     <>
-      <CustomCursor />
       <Navbar />
       <main>
         <Hero />

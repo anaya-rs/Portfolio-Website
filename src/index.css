@@ -40,58 +40,13 @@ body {
   min-height: 102.04vh; /* Compensate for scale */
 }
 
-/* Hide default cursor everywhere - except on mobile */
-@media (min-width: 769px) {
-  * { cursor: none !important; }
-  
-  /* Ensure custom cursor works over all elements */
-  body * {
-    pointer-events: auto !important;
-  }
-  
-  /* Fix for elements that might block cursor */
-  .ticker, .track, .card, .licenseCard, .blob1, .blob2 {
-    pointer-events: auto !important;
-  }
-  
-  /* Specific marquee cursor fix */
-  .ticker {
-    position: relative !important;
-  }
-  
-  .ticker::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
-  
-  .track {
-    pointer-events: none !important;
-  }
-  
-  .track .item {
-    pointer-events: auto !important;
-  }
-}
-
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   body {
-    cursor: auto; /* Show default cursor on mobile */
     transform: none !important; /* Completely remove transform on mobile */
     width: 100% !important; /* Reset width for mobile */
     min-height: 100vh !important; /* Reset height for mobile */
     overflow-x: hidden; /* Ensure no horizontal scroll */
-  }
-  
-  /* Ensure all elements are visible on mobile */
-  * {
-    cursor: auto !important;
   }
 }
 
