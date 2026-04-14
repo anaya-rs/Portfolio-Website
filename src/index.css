@@ -25,6 +25,9 @@
 
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 body {
@@ -33,11 +36,24 @@ body {
   color: var(--ink);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
   /* Default 98% scale for desktop */
   transform: scale(0.98);
   transform-origin: 0 0;
   width: 102.04%; /* Compensate for scale to prevent horizontal scroll */
   min-height: 102.04vh; /* Compensate for scale */
+}
+
+#root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 0;
+  padding: 0;
 }
 
 /* Mobile-specific styles */
