@@ -30,8 +30,8 @@ export default function CustomCursor() {
     }
 
     const animate = () => {
-      curX += (mouseX - curX) * 0.12
-      curY += (mouseY - curY) * 0.12
+      curX += (mouseX - curX) * 0.15
+      curY += (mouseY - curY) * 0.15
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate(${curX}px, ${curY}px)`
       }
@@ -41,18 +41,29 @@ export default function CustomCursor() {
     const onEnter = () => setIsHovering(true)
     const onLeave = () => setIsHovering(false)
 
-    window.addEventListener('mousemove', move)
-    const links = document.querySelectorAll('a, button, [data-hover]')
-    links.forEach(el => {
-      el.addEventListener('mouseenter', onEnter)
-      el.addEventListener('mouseleave', onLeave)
-    })
+    // Better event handling
+    window.addEventListener('mousemove', move, { passive: true })
+    
+    // Update hover state more frequently
+    const updateHoverState = () => {
+      const links = document.querySelectorAll('a, button, [data-hover], .card, .ctaOutline, .ctaWhatsapp')
+      links.forEach(el => {
+        el.addEventListener('mouseenter', onEnter, { passive: true })
+        el.addEventListener('mouseleave', onLeave, { passive: true })
+      })
+    }
+
+    updateHoverState()
+    
+    // Re-check for new elements periodically
+    const interval = setInterval(updateHoverState, 1000)
 
     animId = requestAnimationFrame(animate)
 
     return () => {
       window.removeEventListener('mousemove', move)
       cancelAnimationFrame(animId)
+      clearInterval(interval)
     }
   }, [])
 
@@ -72,7 +83,7 @@ export default function CustomCursor() {
           border: '2px solid var(--ink)',
           borderRadius: '50%',
           pointerEvents: 'none',
-          zIndex: 99999,
+          zIndex: 999999,
           transition: 'width 0.3s, height 0.3s, background 0.3s',
           background: isHovering ? 'var(--yellow)' : 'transparent',
           mixBlendMode: isHovering ? 'normal' : 'difference',
@@ -90,7 +101,7 @@ export default function CustomCursor() {
           background: 'var(--ink)',
           borderRadius: '50%',
           pointerEvents: 'none',
-          zIndex: 99999,
+          zIndex: 999999,
           willChange: 'transform',
           transition: 'background 0.2s',
         }}

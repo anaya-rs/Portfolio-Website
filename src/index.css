@@ -43,6 +43,16 @@ body {
 /* Hide default cursor everywhere - except on mobile */
 @media (min-width: 769px) {
   * { cursor: none !important; }
+  
+  /* Ensure custom cursor works over all elements */
+  body * {
+    pointer-events: auto !important;
+  }
+  
+  /* Fix for elements that might block cursor */
+  .ticker, .track, .card, .licenseCard, .blob1, .blob2 {
+    pointer-events: auto !important;
+  }
 }
 
 /* Mobile-specific styles */
