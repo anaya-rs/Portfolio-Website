@@ -27,6 +27,12 @@ export default function CustomCursor() {
       if (dotRef.current) {
         dotRef.current.style.transform = `translate(${mouseX}px, ${mouseY}px)`
       }
+      
+      // Force cursor to stay visible even over problematic elements
+      if (cursorRef.current) {
+        cursorRef.current.style.opacity = '1'
+        dotRef.current.style.opacity = '1'
+      }
     }
 
     const animate = () => {
@@ -51,12 +57,20 @@ export default function CustomCursor() {
         el.addEventListener('mouseenter', onEnter, { passive: true })
         el.addEventListener('mouseleave', onLeave, { passive: true })
       })
+      
+      // Special handling for marquee area
+      const marqueeElements = document.querySelectorAll('.ticker, .track, .item')
+      marqueeElements.forEach(el => {
+        el.addEventListener('mousemove', move, { passive: true })
+        el.addEventListener('mouseenter', onEnter, { passive: true })
+        el.addEventListener('mouseleave', onLeave, { passive: true })
+      })
     }
 
     updateHoverState()
     
-    // Re-check for new elements periodically
-    const interval = setInterval(updateHoverState, 1000)
+    // Re-check for new elements more frequently
+    const interval = setInterval(updateHoverState, 500)
 
     animId = requestAnimationFrame(animate)
 
